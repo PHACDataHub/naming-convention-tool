@@ -4,6 +4,7 @@ export default {
         return {
             projName: "",
             ObjectName: "",
+            FolderName: "",
             isActive: false,
             picked: null,
             Envs: [{ type: 'Dev' }, { type: 'Test' }, { type: 'Prod' }, { type: 'Exp' }, { type: 'Other' }]
@@ -12,6 +13,7 @@ export default {
     methods: {
         getName() {
             this.ObjectName = "ph-" + this.getEnv() + "-" + projName.value.replace(/\s/g, "").toLowerCase();
+            this.FolderName = "ph-" + projName.value.replace(/\s/g, "").toLowerCase();
         },
         getEnv() {
             if (this.picked == "Dev") {
@@ -58,7 +60,7 @@ export default {
                 </div>
 
                 <div class="env-options">
-                    <p>Type of environment required<span class="req">*</span></p>
+                    <p>Type of environment required <span class="req">*</span></p>
 
                     <ul>
                         <label v-for="env in Envs" :key="env.type">
@@ -76,7 +78,9 @@ export default {
 
                 <div id="result">
                     <div class="alert alert-secondary" v-class="{ active: displayDiv }">
-                        {{ ObjectName }}
+                        Folder name: {{ FolderName }}
+                        <br>
+                        Project name: {{ ObjectName }}
                     </div>
                 </div>
             </div>
