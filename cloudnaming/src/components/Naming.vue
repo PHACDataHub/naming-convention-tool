@@ -36,7 +36,26 @@ export default {
         displayDiv() {
             this.isActive = !this.isActive
             document.getElementById('result').style.display = 'block';
-        }
+        },
+        displayCopied() {
+            this.isActive = !this.isActive
+            document.getElementById('copied').style.display = 'block';
+        },
+        copyFolder() {
+            var copyText = this.FolderName;
+            navigator.clipboard.writeText(copyText);
+            this.displayCopied();
+        },
+        displayCopied2() {
+            this.isActive = !this.isActive
+            document.getElementById('copied2').style.display = 'block';
+        },
+        copyProj() {
+            var copyText = this.ObjectName;
+            navigator.clipboard.writeText(copyText);
+            this.displayCopied2();
+
+        },
     },
     computed: {
         isBtnDisabled() {
@@ -78,9 +97,14 @@ export default {
 
                 <div id="result">
                     <div class="alert alert-secondary" v-class="{ active: displayDiv }">
-                        Folder name: {{ FolderName }}
+                        Folder name: {{ FolderName }} <span class="copyBtn" @click="copyFolder"><img class="copyimg"
+                                src="../assets/copy-solid.svg"></span>
+                        <span id="copied" class="copied" v-class="{ active: displayCopied }">Copied!</span>
                         <br>
-                        Project name: {{ ObjectName }}
+                        Project name: {{ ObjectName }} <span class="copyBtn" @click="copyProj"><img class="copyimg"
+                                src="../assets/copy-solid.svg"></span>
+                        <span id="copied2" class="copied" v-class="{ active: displayCopied2 }">Copied! </span>
+
                     </div>
                 </div>
             </div>
@@ -99,7 +123,17 @@ export default {
     color: red;
 }
 
-.btn-submit {}
+.copyBtn img {
+    max-width: 20px;
+}
+
+.copyBtn img:hover {
+    filter: drop-shadow(16px 16px 20px blue) invert(55%);
+}
+
+.name {
+    display: flex;
+}
 
 #result {
     display: none;
@@ -109,6 +143,20 @@ export default {
     margin-top: 10px;
     font-size: 25px;
 }
+
+.copied {
+    display: none;
+    max-width: 75px;
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px 0px;
+    transition: visibility 0s 2s, opacity 2s linear;
+}
+
+
 
 .env-options ul {
     list-style-type: none;
