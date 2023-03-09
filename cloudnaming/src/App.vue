@@ -17,6 +17,8 @@ import Naming from "./components/Naming.vue"
   padding: 5px 20px;
   background-color: rgb(252, 48, 82);
   color: white;
+  border-radius: 5px;
+
 }
 
 .main{
