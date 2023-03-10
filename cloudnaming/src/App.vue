@@ -1,28 +1,52 @@
-<script setup>
-import Naming from './components/Naming.vue'
-</script>
-
 <template>
   <div>
     <div class="header">
       <h1>Cloud Naming Convention</h1>
+      <div class="nav">
+        <router-link to="/">Home</router-link>
+        <router-link to="/validate">Validate</router-link>
+        <router-link to="/convention">Naming Convention</router-link>
+
+      </div>
     </div>
+
     <div class="main">
-      <Naming />
+      <router-view></router-view>
     </div>
   </div>
 </template>
 
 <style scoped>
 .header {
-  padding: 5px 20px;
+  padding: 0px 20px;
   background-color: rgb(252, 48, 82);
   color: white;
   border-radius: 5px;
+  display: flex;
 }
 
 .main {
   width: 100%;
   margin-top: 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+}
+
+.nav a:visited {
+  text-decoration: none;
+}
+.nav a:hover{
+  color: pink;
+}
+
+.nav{
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 22px;
 }
 </style>
