@@ -18,16 +18,18 @@
 
 <style scoped>
 .header {
-  padding: 0px 20px;
+  padding: 0px 15px;
   background-color: rgb(252, 48, 82);
   color: white;
   border-radius: 5px;
   display: flex;
+  align-items: center;
 }
 
 .main {
   width: 100%;
   margin-top: 25px;
+  padding-left: 25px;
 }
 
 .nav a {
@@ -47,6 +49,6 @@
   display: flex;
   align-items: center;
   margin-left: 10px;
-  font-size: 22px;
+  font-size: 18px;
 }
 </style>
